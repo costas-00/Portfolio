@@ -3,24 +3,23 @@ import { BentoGrid, BentoGridItem } from "./ui/BentoGrid";
 
 const Grid = () => {
   return (
-    <section id="about">
-      <BentoGrid className="w-full py-20">
-        {gridItems.map((item, i) => (
-          <BentoGridItem
-            id={item.id}
-            key={i}
-            title={item.title}
-            description={item.description}
-            // remove icon prop
-            // remove original classname condition
-            className={item.className}
-            img={item.img}
-            imgClassName={item.imgClassName}
-            titleClassName={item.titleClassName}
-            spareImg={item.spareImg}
-          />
-        ))}
-      </BentoGrid>
+    <section className="flex justify-center items-center px-8 sm:px-6 md:px-8 py-20">
+      <div>
+        <BentoGrid className="w-full py-10 font-courier">
+          {gridItems.map((item, i) => (
+            <BentoGridItem
+              id={item.id}
+              key={i}
+              title={item.title}
+              description={item.description}
+              className={item.className}
+              videoSrc={item.videoSrc} // Trimite sursa videoclipului
+              videoClassName={item.imgClassName} // Opțional pentru styling
+              titleClassName={item.titleClassName}
+            />
+          ))}
+        </BentoGrid>
+      </div>
     </section>
   );
 };

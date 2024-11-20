@@ -15,21 +15,31 @@ const config = {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
     "./data/**/*.{ts,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   prefix: "",
   theme: {
     container: {
       center: true,
-      padding: "",
+      padding: "2rem",
       screens: {
         "2xl": "1400px",
       },
     },
     extend: {
+      backgroundImage: {
+        "white-yellow-conic":
+          "conic-gradient(from 90deg at 50% 50%, white 0%, #FFD100 50%, white 100%)",
+      },
+
+      fontFamily: {
+        courier: ["Courier New", "monospace"],
+      },
+
       colors: {
         black: {
           DEFAULT: "#000",
-          100: "#000319",
+          100: "#000",
           200: "rgba(17, 25, 40, 0.75)",
           300: "rgba(255, 255, 255, 0.125)",
         },
@@ -189,7 +199,6 @@ const config = {
     },
   ],
 } satisfies Config;
-
 function addVariablesForColors({ addBase, theme }: any) {
   let allColors = flattenColorPalette(theme("colors"));
   let newVars = Object.fromEntries(

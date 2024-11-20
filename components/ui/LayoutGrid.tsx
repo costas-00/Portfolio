@@ -12,7 +12,7 @@ type Card = {
   thumbnail: string;
 };
 
-export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
+export const Grid = ({ cards }: { cards: Card[] }) => {
   const [selected, setSelected] = useState<Card | null>(null);
   const [lastSelected, setLastSelected] = useState<Card | null>(null);
 
@@ -33,9 +33,9 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
         <Button
           key={i}
           borderRadius="1.75rem"
-          //   default is 2000
+          // default is 2000
           duration={10000}
-          //   add className={cn(card.className, "")}
+          // add className={cn(card.className, "")}
           className={cn(
             card.className
             // "bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800"
@@ -58,7 +58,6 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
                   ? "z-40 bg-white rounded-xl h-full w-full"
                   : "bg-white rounded-xl h-full w-full"
               )}
-              layout
             >
               {selected?.id === card.id && <SelectedCard selected={selected} />}
               <BlurImage card={card} />
@@ -83,7 +82,7 @@ const BlurImage = ({ card }: { card: Card }) => {
   return (
     <Image
       src={card.thumbnail}
-      //   change image scale 500 to 100
+      // change image scale 500 to 100
       height="100"
       width="100"
       onLoad={() => setLoaded(true)}

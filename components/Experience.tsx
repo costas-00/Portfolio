@@ -22,24 +22,24 @@ const Experience = () => {
               // you can generate the color from here https://cssgradient.io/
               background: "rgb(0,0,0)",
               backgroundColor:
-                "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,209,0,1) 100%)",
+                "radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 100%)",
               // add this border radius to make it more rounded so that the moving border is more realistic
               borderRadius: `calc(1.75rem* 0.96)`,
             }}
             // remove bg-white dark:bg-slate-900
-            className="flex-1 text-black dark:text-white border-neutral-200 dark:border-slate-800"
+            className="flex-1 text-white border-white-200"
           >
             <div className="flex lg:flex-row flex-col lg:items-center p-3 py-6 md:p-5 lg:p-10 gap-2">
               <img
                 src={card.thumbnail}
                 alt={card.thumbnail}
-                className="lg:w-48 md:w-32 w-28"
+                className="lg:w-40 md:w-24 w-28"
               />
               <div className="lg:ms-5">
                 <h1 className="text-start text-xl md:text-2xl font-bold">
                   {card.title}
                 </h1>
-                <p className="text-start text-white-100 mt-3 font-semibold">
+                <p className="text-start text-white mt-3 pb-3 pr-3">
                   {card.desc}
                 </p>
               </div>

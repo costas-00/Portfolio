@@ -1,0 +1,26 @@
+/* Secțiunea video care acoperă 3 înălțimi de ecran */
+.videoSection {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300vh;
+  /* Înălțimea video-ului acoperă 3 ecrane */
+  overflow: hidden;
+  z-index: 0;
+  /* Plasează video-ul în fundal */
+}
+
+/* Videoclipul care se joacă în fundal */
+.backgroundVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+
+  /* Asigură că videoclipul va acoperi întreaga zonă */
+  z-index: 0;
+  /* Asigură-te că video-ul este sub secțiunea About */
+}

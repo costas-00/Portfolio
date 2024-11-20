@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import styles from "./styles/VideoBackground.module.css"; // Import CSS module
+import styles from "./styles/VideoBackground.module.css"; //  Import CSS module
 
 const VideoBackgroundClient: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);

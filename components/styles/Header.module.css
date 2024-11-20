@@ -1,0 +1,163 @@
+/* Header Styles */
+.header {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 50px;
+background-color: rgba(0, 0, 0, 0.8);
+color: #fff;
+padding: 5px 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 1000;
+transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hideHeader {
+transform: translateY(-100%);
+opacity: 0;
+}
+
+.leftSide {
+position: absolute;
+left: 20px;
+display: flex;
+align-items: center;
+}
+
+.verticalLine {
+width: 1px;
+height: 30px;
+background-color: white;
+margin: 0 10px;
+}
+
+.logoText {
+font-size: 1.4rem;
+font-weight: bold;
+cursor: default;
+font-family: 'Courier New', monospace;
+}
+
+.spatiu {
+padding: 5px;
+}
+
+.copyButton {
+background-color: #000000;
+color: #fff;
+border-color:#fff;
+border-width: 0.7px;
+padding: 5px 10px;
+margin-left: 10px;
+border-radius: 5px;
+cursor: pointer;
+font-family: 'Courier New', monospace;
+font-weight: bold;
+font-size: 0.9rem;
+letter-spacing: 0.9px;
+transition: background-color 0.3s, transform 0.2s;
+}
+
+.copyButton:hover {
+background-color: #1c1c1c;
+}
+
+.copyButton.clicked {
+transform: scale(0.9);
+}
+
+.copiedMessage {
+font-size: 0.9rem;
+color: #a4a4a4;
+margin-left: 10px;
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+
+.copiedMessage.show {
+opacity: 1;
+}
+
+.headerCenter {
+display: flex;
+align-items: center;
+gap: 20px;
+font-family: 'Courier New', monospace;
+font-weight: bold;
+letter-spacing: 0.9px;
+}
+
+.navLink {
+position: relative; /* Asigură-te că pseudo-elementul ::after este poziționat relativ la fiecare link */
+text-decoration: none;
+color: #fff;
+}
+
+.navLink::after {
+content: '';
+position: absolute;
+bottom: -2px; /* Poziționează linia sub text */
+left: 0;
+width: 0;
+height: 2px; /* Ajustează grosimea liniei după preferințe */
+background-color: #fff;
+transition: width 0.3s ease; /* Creează animația pentru lățimea liniei */
+}
+
+.navLink:hover::after {
+width: 100%; /* Lărgește linia la dimensiunea textului la hover */
+}
+
+.rotatingLogo {
+width: 40px;
+height: 40px;
+display: inline-block;
+cursor: pointer;
+animation: rotate360 7s linear infinite;
+}
+
+.rotatingLogo img {
+width: 40px;
+height: 40px;
+transition: transform 0.2s ease, width 0.3s, height 0.3s;
+}
+
+.rotatingLogo:hover img {
+transform: scale(1.2);
+}
+
+.rotatingLogo:active img {
+transform: scale(0.8);
+}
+
+@keyframes rotate360 {
+from {
+transform: rotate(0deg);
+}
+to {
+transform: rotate(360deg);
+}
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+.leftSide {
+display: none; /* Ascunde textul Costas. C și bara verticală */
+}
+
+.header {
+padding: 5px 10px; /* Ajustează padding-ul pentru a se potrivi pe ecranul mobil */
+}
+
+.headerCenter {
+gap: 15px; /* Ajustează spațiul dintre linkuri pe dispozitive mobile */
+}
+
+.copyButton {
+font-size: 0.8rem; /* Ajustează fontul pentru dispozitive mai mici */
+padding: 4px 8px;
+}
+}

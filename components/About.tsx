@@ -13,9 +13,10 @@ const About: React.FC = () => {
       <div className={styles.aboutTitle}>
         <div className={styles.aboutText}>About</div>
       </div>
-
+      <div className={styles.divider}></div>
       {/* Secțiunea video va fi încărcată pe client */}
       <AboutClient />
+      <div className={styles.divider1}></div>
     </section>
   );
 };

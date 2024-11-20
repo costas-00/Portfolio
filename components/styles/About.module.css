@@ -98,3 +98,26 @@ margin-right: auto;
 opacity: 1;
 z-index: 10;
 }
+
+.divider {
+    width: 90vw;
+    height: 2px;
+    background-color: white;
+    border-radius: 50px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 1;
+}
+
+.divider1 {
+    width: 90vw;
+    height: 2px;
+    margin-top: 120px;
+    background-color: white;
+    border-radius: 50px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 1;
+}

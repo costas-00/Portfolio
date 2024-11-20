@@ -11,6 +11,7 @@ import About from "@/components/About";
 import React, { useEffect } from "react";
 import style from "./styles.module.css";
 import { useState } from "react";
+import Tools from "@/components/Tools";
 // useEffect(() => {
 // Resetează scroll-ul la poziția 0 (sus)
 //window.scrollTo(0, 0);
@@ -25,7 +26,7 @@ const Home = () => {
         <Header />
 
         <About />
-
+        <Tools />
         <section className={style.pos}>
           <Grid />
           <RecentProjects />

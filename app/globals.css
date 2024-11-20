@@ -2,6 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Asigură că padding-ul și marginile sunt incluse în dimensiunile elementelor */
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: transparent;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
+  border: transparent;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy&display=swap');
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -28,7 +57,7 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 5.9% 90%;
+    --border: transparent;
     --input: 240 5.9% 90%;
     --ring: 240 10% 3.9%;
 
@@ -60,7 +89,7 @@
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 3.7% 15.9%;
+    --border: transparent;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
   }
@@ -70,9 +99,11 @@
   * {
     @apply border-border !scroll-smooth;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   button {
     @apply active:outline-none;
   }
@@ -80,6 +111,6 @@
 
 @layer utilities {
   .heading {
-    @apply font-bold text-4xl md:text-5xl text-center;
+    @apply font-bold text-4xl md:text-5xl text-center z-50 relative;
   }
 }

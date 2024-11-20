@@ -1,0 +1,100 @@
+/* Setăm secțiunea 'about' pentru a fi plasată înainte de video */
+.aboutContainer {
+position: relative;
+width: 100%;
+background-color: black;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: flex-end;
+/* Aliniem secțiunea About la dreapta */
+box-sizing: border-box;
+z-index: 1;
+}
+
+/* Titlul About - aliniat în dreapta */
+.aboutTitle {
+font-family: 'Courier New', monospace;
+letter-spacing: 0.9px;
+position: relative;
+right: 5px;
+color: #fff;
+}
+
+.aboutText {
+font-family: 'Courier New', monospace;
+font-weight: bold;
+letter-spacing: 0.9px;
+font-size: 1rem;
+/* sau 1.4rem dacă vrei mai mare, în funcție de cum vrei să arate */
+color: #fff;
+transition: transform 0.2s ease;
+font-size: 1.5rem;
+cursor: default;
+}
+
+/* Videoclipul - să fie plasat după secțiunea About */
+.aboutVideoContainer {
+position: relative;
+width: 100%;
+height: calc(100vh - 40px);
+/* Videoclipul va ocupa aproape toată înălțimea ecranului cu 20px de sus și jos */
+z-index: 0;
+padding: 0;
+/* 20px spațiu sus și jos pentru videoclip */
+}
+
+/* Videoclipul să fie complet pe ecran, dar cu 20px de sus și jos */
+.aboutVideo {
+position: absolute;
+top: 20px;
+/* Spațiu de 20px de sus */
+left: 0;
+width: 100vw;
+/* Lățimea completă a ferestrei */
+height: calc(100vh - 50px);
+/* Înălțimea completă minus 20px sus și jos */
+object-fit: cover;
+/* Asigurăm că videoclipul va acoperi întreaga zonă */
+/* Videoclipul va fi plasat în fundal */
+}
+
+.aboutMobile {
+position: absolute;
+/* Spațiu de 20px de sus */
+left: 0;
+width: 100vw;
+/* Lățimea completă a ferestrei */
+height: calc(100vh - 50px);
+/* Înălțimea completă minus 20px sus și jos */
+object-fit: cover;
+/* Asigurăm că videoclipul va acoperi întreaga zonă */
+/* Videoclipul va fi plasat în fundal */
+}
+
+/* Linia de sub textul About - aliniată la mijloc */
+.aboutLine {
+width: 80vw;
+/* Lățimea va fi 80% din lățimea ferestrei */
+height: 2px;
+background-color: white;
+border-radius: 50px;
+margin: 5px auto;
+opacity: 1;
+z-index: 10;
+}
+
+/* Linia de dedesubt cu distanța de 5px față de marginea de jos */
+.aboutLineBottom {
+width: 80vw;
+/* Lățimea va fi 80% din lățimea ferestrei */
+height: 2px;
+background-color: white;
+border-radius: 50px;
+margin-top: 20px;
+margin-bottom: 5px;
+margin-left: auto;
+margin-right: auto;
+opacity: 1;
+z-index: 10;
+}

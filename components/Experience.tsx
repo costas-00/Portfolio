@@ -6,7 +6,7 @@ import { Button } from "./ui/MovingBorders";
 const Experience = () => {
   return (
     <div className=" w-full pt-10">
-      <h1 className="heading">
+      <h1 className="heading pl-10 pr-10">
         What I Bring to <span className="text-purple">the Table</span>
       </h1>
 

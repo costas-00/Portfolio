@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import styles from "./styles/Tools.module.css";

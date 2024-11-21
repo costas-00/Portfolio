@@ -6,22 +6,30 @@ import Experience from "@/components/Experience";
 import RecentProjects from "@/components/RecentProjects";
 import Header from "@/components/Header";
 import About from "@/components/About";
-import React, { useEffect } from "react";
+import React from "react";
 import style from "./styles.module.css";
-import { useState } from "react";
 import Tools from "@/components/Tools";
 import VideoBackground from "@/components/VideoBackground";
+import Hero from "@/components/Hero";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 const Home = () => {
-  const [isClient, setIsClient] = useState(false);
+  // Detectăm dacă ecranul este mai mic de 768px
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
     <main className="relative bg-black border-transparent flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
       <div className="border-transparent">
         <Header />
-        <VideoBackground />
+
+        {/* Afișăm VideoBackground sau Hero în funcție de dimensiunea ecranului */}
+        {isMobile ? <Hero /> : <VideoBackground />}
+
         <About />
-        <Tools />
+
+        {/* Tools se afișează doar pe desktop și tabletă */}
+        {!isMobile && <Tools />}
+
         <section className={style.pos}>
           <Grid />
           <RecentProjects />

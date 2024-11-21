@@ -5,7 +5,7 @@ import MagicButton from "./MagicButton";
 
 const Footer = () => {
   return (
-    <footer className="w-full pt-32 pb-10 pr-10 pl-10" id="contact">
+    <footer className="w-full pt-32 pb-20 pr-10 pl-10" id="contact">
       {/* background grid */}
       <div className="w-full absolute left-0 -bottom-72 min-h-96">
         <img
@@ -20,7 +20,7 @@ const Footer = () => {
           Ready to take <span className="text-purple">your</span> digital
           presence to the next level?
         </h1>
-        <p className="text-white-200 md:mt-10 my-5 text-center">
+        <p className="text-white-200 md:mt-10 my-10 text-center">
           Reach out to me today and let&apos;s discuss how I can help you
           achieve your goals.
         </p>

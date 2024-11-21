@@ -332,7 +332,6 @@ const Tools: React.FC = () => {
       <section className={styles.lineContainer}>
         <div className={styles.divider}></div>
       </section>
-      <div id="WorkSection" className="spa"></div>
     </div>
   );
 };

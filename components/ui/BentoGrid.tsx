@@ -10,6 +10,7 @@ import MagicButton from "../MagicButton";
 
 export const BentoGrid = ({
   className,
+
   children,
 }: {
   className?: string;

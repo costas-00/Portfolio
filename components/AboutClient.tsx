@@ -15,7 +15,8 @@ const AboutClient: React.FC = () => {
   // Folosim `useEffect` pentru a seta sursa video și dimensiunea ferestrei
   useEffect(() => {
     const updateVideoSource = () => {
-      const newSource = window.innerWidth <= 768 ? "/aboutMobile.mp4" : "/aboutVideo.mp4";
+      const newSource =
+        window.innerWidth <= 768 ? "/aboutMobile1.mp4" : "/aboutVideo.mp4";
       setVideoSource(newSource);
       setWindowWidth(window.innerWidth); // Setăm dimensiunea ferestrei
     };

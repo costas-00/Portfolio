@@ -16,7 +16,7 @@ const AboutClient: React.FC = () => {
   useEffect(() => {
     const updateVideoSource = () => {
       const newSource =
-        window.innerWidth <= 768 ? "/aboutMobile.mp4" : "/aboutVideo.mp4";
+        window.innerWidth <= 768 ? "/aboutMobileVideo.mp4" : "/aboutVideo.mp4";
       setVideoSource(newSource);
     };
 

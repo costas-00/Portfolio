@@ -20,7 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10; /* Asigură-te că loaderul e deasupra video-ului */
+  z-index: 9; /* Asigură-te că loaderul e deasupra video-ului */
 }
 
 /* Titlul About - aliniat în dreapta */

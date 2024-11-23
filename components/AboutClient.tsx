@@ -9,29 +9,45 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AboutClient: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [videoSource, setVideoSource] = useState<string | null>(null);
-  const [windowWidth, setWindowWidth] = useState<number>(0); // Dimensiunea ferestrei
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false); // Stare pentru a verifica încărcarea video
+  const [videoSource, setVideoSource] = useState<string | undefined>(undefined); // Sursa video
 
-  // Folosim `useEffect` pentru a seta sursa video și dimensiunea ferestrei
+  // Setăm sursa videoclipului în funcție de dimensiunea ferestrei
   useEffect(() => {
     const updateVideoSource = () => {
       const newSource =
-        window.innerWidth <= 768 ? "/aboutMobile1.mp4" : "/aboutVideo.mp4";
+        window.innerWidth <= 768 ? "/aboutMobile12.mp4" : "/aboutVideo.mp4";
       setVideoSource(newSource);
-      setWindowWidth(window.innerWidth); // Setăm dimensiunea ferestrei
     };
 
-    updateVideoSource(); // Setăm sursa video la încărcare
-    window.addEventListener("resize", updateVideoSource); // Ascultăm pentru redimensionare
+    updateVideoSource();
+    window.addEventListener("resize", updateVideoSource);
 
     return () => {
-      window.removeEventListener("resize", updateVideoSource); // Curățăm evenimentul
+      window.removeEventListener("resize", updateVideoSource);
     };
   }, []);
 
-  // Configurăm ScrollTrigger pentru redarea video-ului
+  // Așteptăm ca videoclipul să fie complet încărcat
   useEffect(() => {
-    if (videoRef.current && videoSource) {
+    const video = videoRef.current;
+
+    if (video && videoSource) {
+      const handleLoadedData = () => {
+        setIsVideoLoaded(true); // Marcăm videoclipul ca fiind încărcat
+      };
+
+      video.addEventListener("loadeddata", handleLoadedData);
+
+      return () => {
+        video.removeEventListener("loadeddata", handleLoadedData);
+      };
+    }
+  }, [videoSource]);
+
+  // Configurăm ScrollTrigger pentru redarea videoclipului
+  useEffect(() => {
+    if (isVideoLoaded && videoRef.current) {
       const video = videoRef.current;
 
       const scrollTriggerInstance = ScrollTrigger.create({
@@ -45,34 +61,39 @@ const AboutClient: React.FC = () => {
       });
 
       return () => {
-        scrollTriggerInstance.kill(); // Curățăm ScrollTrigger la demontare
+        scrollTriggerInstance.kill();
       };
     }
-  }, [videoSource]);
-
-  if (!videoSource) {
-    return null; // Nu returnăm nimic până când sursa video nu este setată
-  }
+  }, [isVideoLoaded]);
 
   return (
     <div className={styles.aboutVideoContainer}>
-      <video
-        ref={videoRef}
-        className={styles.aboutVideo}
-        src={videoSource}
-        muted
-        playsInline
-        preload="auto"
-        loop={false}
-        autoPlay={false}
-        style={{
-          objectFit: "contain",
-          width: "100%",
-          height: "100%",
-        }}
-      >
-        Your browser does not support the video tag.
-      </video>
+      {/* Loader afișat până când videoclipul este gata */}
+      {!isVideoLoaded && (
+        <div className="w-full h-full flex items-center justify-center">
+          <div className="animate-spin w-12 h-12 border-4 border-t-blue-500 border-gray-300 rounded-full"></div>
+        </div>
+      )}
+      {videoSource && (
+        <video
+          ref={videoRef}
+          className={styles.aboutVideo}
+          src={videoSource}
+          muted
+          playsInline
+          preload="auto"
+          loop={false}
+          autoPlay={false}
+          style={{
+            objectFit: "contain",
+            width: "100%",
+            height: "100%",
+            display: isVideoLoaded ? "block" : "none",
+          }}
+        >
+          Your browser does not support the video tag.
+        </video>
+      )}
     </div>
   );
 };
